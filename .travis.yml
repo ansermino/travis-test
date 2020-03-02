@@ -1,0 +1,8 @@
+jobs:
+  include:
+    - name: "Mock Run"
+      script:
+        - npm install
+        - mkdir someDir
+        - cp package-lock.json someDir/
+
