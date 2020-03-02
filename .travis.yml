@@ -7,14 +7,13 @@ jobs:
     - cp package-lock.json someDir/
 deploy:
   provider: s3
-  access_key_id: LDSV5SPYYU3KCUVIT6JM
-  secret_access_key:
-    secure: SVMovp3+X2nL8LHN2BQgilWnbqe1+0ANH2jhFKwFiN5E3xbJi3kynpra6RQ0iA1CftFXirFykLBkxdGEGZxC2H5jz6aeNNsSzHA0RZcjYyt8+/NTIayWovMftIK1oOhy16ycwSKIR12CMSc90VMHgOYTwWtPVNQLztYrf6cHa44vAZg8gQXY9Re+GXfR2Xj7HKTCIFedjRAg9UVemKVfV9lJ+rQlKr+2GHJpgD0g0rPzs+rKX7Zf8mB7yoWdKy0a/jLbg8YBbc4tfcfUnV603l41DP9+cfSFaW1E/CBsDqSg8YtF+LTANTML9ofdbsAFKkVXnFHDt11VSpoTqdzR9KFnUbBx7ba9kItkVEOHwkY6dpvgEPdjDlcAGvssZSd/kSvZKzVFh3dEChIvTSDudgAf/+6wHhxAlezpjsa7jBe2Mr+2dGjdSUt3uKpJIf4QEGSA7jg2zXj4mQf0P6U5K+1HBHHfdfMfInNGvcCBtFjsyig1nudFcFs8f/5V7pzJe+Vf+UyiteXJ6OwDSppuLdgU/TBUl43gZV7jkhuxqtUQmFDHs/XIEdkwRRQtsA9BvuWyRXndgwjnDWiftLwMP3t/pj7aeZ9epw2pw2WWmv7WT1XGoDsstx7wcPH3cXdl8M76cZCFKtQdrXGPggbEnxmF/9WaCVMdM2LcF5teM3M=
+  access_key_id: $S3_KEY_ID
+  secret_access_key: $S3_ACCESS_KEY
   bucket: centchain
   endpoint: https://nyc3.digitaloceanspaces.com
-  local_dir: someDir/
+  local_dir: someDir
   glob: package-lock.json
-  upload_dir: "$TRAVIS_COMMIT-$TRAVIS_BUILD"
+  upload-dir: $TRAVIS_COMMIT-$TRAVIS_BUILD
   acl: private
   skip_cleanup: true
   on:
